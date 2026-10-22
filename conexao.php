@@ -9,7 +9,7 @@
     if($result){
         echo "Conectou com o banco de dados";
     }else{
-        echo mysqli_error($result);
+        echo mysqli_connect_error($result);
     }
 
 ?>
