@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Funcionario</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+    <?php
+    include_once("../menu.php");
+    $id = $_GET['id'];
+    $sql = "Select * from funcionario where id=$id";
+    require_once("../conexao.php");
+    $result = mysqli_query($conexao,$sql);
+    $funcionario = mysqli_fetch_assoc($result);
+    ?>
+    <h1>Edição de Funcionario</h1>
+    <form action="atualizar.php" method="post">
+    <p>
+        <label for="">Nome: </label>
+        <input type="text" name="nome" required value="<?php echo $funcionario['nome']; ?>">
+    </p>
+    <p>
+        <label for="">Email: </label>
+        <input type="text" name="email" required value="<?php echo $funcionario['email']; ?>">
+    </p>
+    <p>
+        <label for="">Cargo: </label>
+        <input type="text" name="cargo" required value="<?php echo $funcionario['cargo']; ?>">
+    </p>
+    <p>
+        <label for="">Salário: </label>
+        <input type="number" name="salario" step="0.01" required value="<?php echo $funcionario['salario']; ?>">
+    </p>
+    <p>
+        <label for="">Data Admissão: </label>
+        <input type="date" name="admissao" required value="<?php echo $funcionario['data_admissao']; ?>">
+    </p>
+    <p>
+        <label for="ativo">Ativo:</label>
+        <input type="checkbox" name="ativo" <?php if ($funcionario['ativo']==1){ echo 'checked';} ?>>
+    </p>
+    <p>
+        <input type="hidden" name="id" value="<?php echo $id; ?>">
+        <input type="submit" value="Atualizar">
+    </p>
+    </form>
+</body>
+</html>
