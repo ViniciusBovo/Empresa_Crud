@@ -4,7 +4,7 @@
     $usuario = "root";
     $senha = "";
     $bd = "empresa";
-    // Conectar o comando
+    // Conectar o comandoo
     $conexao = mysqli_connect($servidor,$usuario,$senha,$bd);
     if($conexao){
         echo "Conectou com o banco de dados";

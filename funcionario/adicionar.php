@@ -28,7 +28,7 @@
         <input type="number" name="salario" step="0.01" required>
     </p>
     <p>
-        <label for="">Data Admissão: </label>
+        <label for="">Data Admissãoo: </label>
         <input type="date" name="admissao" required>
     </p>
     <p>

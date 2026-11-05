@@ -5,7 +5,7 @@
     $salario = $_POST['salario'];
     $admissao = $_POST['admissao'];
 
-// Criar o comando sql
+// Criar o comando sqli
 $sql = "insert into Funcionario(nome,email,cargo,salario,data_admissao) 
 values ('$nome','$email','$cargo', $salario,'$admissao')";
 require_once("../conexao.php");
